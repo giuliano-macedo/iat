@@ -31,11 +31,10 @@ xs=np.array(range(1,NO_IT+1))
 for i in np.arange(2,5.1,.5):
 	prec=10**(-i)
 	errs,thetao=reg_linear(x_linha,y_linha,prec,NO_IT)
-	
 	plt.plot(xs,errs,label=rf"$\alpha$=$10^{{{-i}}}$ $\theta={list(thetao)}$")
 plt.legend(fontsize=8)
 plt.xlabel('Números de iteração')
 plt.ylabel(r'$J(\theta)$')
-plt.title(r'Gráfico de $J(\alpha)$ para diferente alphas')
+plt.title(r'Gráfico de $J(\theta)$ para diferente alphas')
 plt.show()
 # print(errs)
