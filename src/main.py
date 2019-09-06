@@ -18,7 +18,6 @@ def reg_linear(x_linha,y_linha,alpha,no_it):
 		e=H_theta-Y
 		j=(e.T.dot(e)/(2*m)).reshape(())
 		errs[i]=j
-		# print(thetao.reshape(2),j)
 		thetao=thetao-((alpha/m)*(X.T.dot(e)))
 	return errs,thetao.reshape((2))
 
