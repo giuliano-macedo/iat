@@ -22,8 +22,8 @@ def reg_linear(x_linha,y_linha,alpha,no_it):
 	return errs,thetao.reshape((2))
 
 parser=argparse.ArgumentParser()
-parser.add_argument("--no_it","-n",type=int)
-parser.add_argument("--interval","-i",type=str)
+parser.add_argument("--no_it","-n",type=int,required=True)
+parser.add_argument("--interval","-i",type=str,required=True)
 args=parser.parse_args()
 
 NO_IT=args.no_it

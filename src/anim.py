@@ -50,8 +50,8 @@ class Animation:
 		plt.legend(fontsize=8)
 
 parser=argparse.ArgumentParser()
-parser.add_argument("alpha",type=float)
-parser.add_argument("skip",type=int)
+parser.add_argument("--alpha","-a",type=float,required=True)
+parser.add_argument("--skip","-s",type=int,required=True)
 args=parser.parse_args()
 
 fig = plt.figure()
