@@ -7,7 +7,7 @@ import argparse
 from LinearRegression import LinearRegression
 
 class Animation:
-	def __init__(self,alpha,skip=1,normalize):
+	def __init__(self,alpha,normalize,skip=1):
 		self.skip=skip
 		self.x_linha=np.genfromtxt("../samples/entradas_x.txt")
 		self.y_linha=np.genfromtxt("../samples/saidas_y.txt")
@@ -48,6 +48,6 @@ args=parser.parse_args()
 
 fig = plt.figure()
 ax1 = fig.add_subplot(1,1,1)
-anim=Animation(args.alpha,args.skip,args.normalize)
+anim=Animation(args.alpha,args.normalize,args.skip)
 ani = animation.FuncAnimation(fig, anim.animate, interval=1) 
 plt.show()
