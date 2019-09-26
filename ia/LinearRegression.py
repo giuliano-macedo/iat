@@ -1,5 +1,5 @@
 import numpy as np
-from . import normalize_vec
+from .utils import normalize_vec
 __author__="Giuliano Oliveira"
 class LinearRegression():
 	def __init__(self,*args,alpha=None,iv=None,normalize=False):

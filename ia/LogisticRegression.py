@@ -1,5 +1,6 @@
 import numpy as np
-from . import LinearRegression,sigmoid
+from . import LinearRegression
+from .utils import sigmoid
 __author__="Giuliano Oliveira"
 class LogisticRegression(LinearRegression):
 	def __next__(self):
