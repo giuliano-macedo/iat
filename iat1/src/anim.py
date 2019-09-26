@@ -1,10 +1,12 @@
-
+import os
+import sys
+sys.path.append(os.path.realpath(os.path.join(__file__,*[".."]*3)))
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
 import time
 import argparse
-from LinearRegression import LinearRegression
+from ia import LinearRegression
 
 class Animation:
 	def __init__(self,alpha,normalize,skip=1):

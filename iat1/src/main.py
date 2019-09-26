@@ -1,7 +1,10 @@
+import os
+import sys
+sys.path.append(os.path.realpath(os.path.join(__file__,*[".."]*3)))
 import numpy as np
 import matplotlib.pyplot as  plt
 import argparse
-from LinearRegression import LinearRegression
+from ia import LinearRegression
 from ast import literal_eval
 
 def interval(s):
