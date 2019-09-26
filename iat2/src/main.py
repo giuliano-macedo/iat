@@ -5,13 +5,9 @@ import numpy as np
 import matplotlib.pyplot as  plt
 import argparse
 from ia import LinearRegression
+from ia.utils import common_argparse_alphas
 
-parser=argparse.ArgumentParser()
-parser.add_argument("--no_it","-n",type=int,required=True)
-parser.add_argument("--interval","-i",type=str,required=True)
-args=parser.parse_args()
-
-a,b,c=[float(o) for o in args.interval.split(",")]
+GRAPH_TITLE,args=common_argparse_alphas(need_normalize=False)
 
 data=np.genfromtxt('../samples/winequality-red.csv', delimiter=';')[1:]
 
@@ -19,7 +15,7 @@ data=np.genfromtxt('../samples/winequality-red.csv', delimiter=';')[1:]
 plt.rc('text', usetex=True)
 xs=np.array(range(1,args.no_it+1))
 ans=[]
-for alpha in np.arange(a,b+c,c):
+for alpha in args.interval:
 	model=LinearRegression(*data.T,alpha=alpha,normalize=True)
 	errs=np.zeros((args.no_it))
 	for i in range(args.no_it):
@@ -32,5 +28,5 @@ np.savetxt("results.csv", ans, delimiter=";",header=header)
 plt.legend(fontsize=8)
 plt.xlabel('Números de iteração')
 plt.ylabel(r'$J(\theta)$')
-plt.title(rf'Gráfico de $J(\theta)$ para diferentes alphas que variam ${a}$ e ${b}$, passo {c}')
+plt.title(GRAPH_TITLE)
 plt.show()
