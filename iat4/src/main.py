@@ -1,10 +1,29 @@
 import os
 import sys
 sys.path.append(os.path.realpath(os.path.join(__file__,*[".."]*3)))
-from ia import download_and_extract_zip,LogisticRegression,parse_interval
+from ia import LogisticRegression
+from ia.utils import download_and_extract_zip,parse_interval
+from ia.tpi import humoments,fract_dim
 import argparse
+import matplotlib.pyplot as plt
+import numpy as np
+from utils import open_img_grey,sobel_l
+from sys import argv
+
+sigma=1
+k=3
+l=80
+
+pic=open_img_grey(f"../dataset/train/cat/cat_{argv[1]}.png")
+pic_l=sobel_l(pic,sigma,k,l)
+# print(humoments(pic_l))
+print(fract_dim(pic_l))
+exit()
+exit()
+
 METHODS={
-	"fft",
+	"humoments",
+	"fract_dim",
 	"histogram",
 	"pixels"
 }
