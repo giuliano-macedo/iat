@@ -1,3 +1,3 @@
-from .utils import normalize_vec,sigmoid
+# import utils
 from .LinearRegression import LinearRegression
 from .LogisticRegression import LogisticRegression
