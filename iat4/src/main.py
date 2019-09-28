@@ -61,11 +61,6 @@ for i in tqdm(range(args.no_it)):
 	acrs_eval[i]=model_eval.accuracy()
 	j_eval[i]=next(model_eval)[1]
 
-header=";".join(["alpha","j",*(f"t{i}" for i in range(len(model_train.theta)))])
-np.savetxt("results.csv", [
-	(model_train.alpha,j_train[-1],*model_train.theta)
-], delimiter=";",header=header)
-
 xs=np.array(range(1,args.no_it+1))
 
 plt.plot(xs,j_train,label=rf"treino")
