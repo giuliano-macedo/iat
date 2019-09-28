@@ -2,7 +2,7 @@ import numpy as np
 from .utils import normalize_vec
 __author__="Giuliano Oliveira"
 class LinearRegression():
-	def __init__(self,*args,alpha=None,iv=None,normalize=False):
+	def __init__(self,*args,alpha=None,iv=np.empty(0),normalize=False):
 		"""
 		LinearRegression(x_0,x_1 ... x_n, y, alpha, iv)
 		if iv is not set, then it will be initialized with 0
@@ -22,10 +22,10 @@ class LinearRegression():
 			if normalize:
 				normalize_vec(args[i])
 			self.X[:,i+1]=args[i]
-		if iv==None:
+		if not iv.any():
 			self.theta=np.array([0.]*(self.n+1)).reshape((self.n+1,1))
 		else:
-			assert iv.shape==(self.m,1)
+			assert iv.shape==(self.n+1,1)
 			self.theta=iv
 	def __iter__(self):
 		return self
