@@ -20,6 +20,10 @@ def get_args():
 		help="max no of iterations on logistic regression",
 		required=True
 	)
+	parser.add_argument("-N","--normalize",
+		action="store_true",
+		help="normalize input on initialization",
+	)
 	parser.add_argument("-d","--dataset",
 		type=lambda s:s if os.path.isdir(s) else parser.error("path does not exist"),
 		nargs="?",

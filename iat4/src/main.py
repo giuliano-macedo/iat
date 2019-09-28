@@ -36,12 +36,13 @@ X_train=get_dataset_type("train")
 print("preprocesing evaluation")
 X_eval =get_dataset_type("evaluation")
 
-model_train=LogisticRegression(*X_train,alpha=args.alpha,normalize=True)
-model_eval=LogisticRegression(*X_eval,alpha=args.alpha,normalize=True) #TODO: preety hacky
+model_train=LogisticRegression(*X_train,alpha=args.alpha,normalize=args.normalize)
+model_eval=LogisticRegression(*X_eval,alpha=args.alpha,normalize=args.normalize) #TODO: preety hacky
 #---------------------------------------------------------------------------------
 #TODO MODULARIZE
-GRAPH_TITLE=rf"""Gráfico de $J(\theta)$ do dataset de treino e validação para o $\alpha={args.alpha}$ 
- utilizando o(s) métodos(s) de {str(args.method)}"""
+GRAPH_TITLE=rf"""Gráfico de $J(\theta)$ do dataset de treino e validação para $\alpha={args.alpha}$ 
+ utilizando o(s) métodos(s) de {str(args.method)}
+ {["sem","com"][args.normalize]} normalização de entrada"""
 
 
 j_train=np.zeros((args.no_it))
