@@ -10,9 +10,9 @@ def get_args():
 			'/'.join(list(FeatureExtractor.methods.keys()))
 		)
 	)
-	parser.add_argument("-i","--interval",
-		type=parse_interval,
-		help="interval of alphas to use",
+	parser.add_argument("-a","--alpha",
+		type=float,
+		help="alpha to use",
 		required=True
 	)
 	parser.add_argument("-n","--no-it",
