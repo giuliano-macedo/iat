@@ -34,11 +34,20 @@ class FeatureExtractor:
 		"histogram":lambda img:np.histogram(img.original,range(0,256))[0],
 		"pixels":lambda img:img.original.reshape(-1)
 	}
+	methods_name={
+		"humoments":"momentos de hu",
+		"fractdim":"dimensão fractal",
+		"histogram":"histograma",
+		"pixels":"pixels"
+	}
 	def __init__(self,s):
 		s=s.split(",")
 		if not all(m in self.methods.keys() for m in s):
 			raise ArgumentTypeError("invalid method")
+		self.str=",".join([self.methods_name[m] for m in s])
 		self.pipeline=[self.methods[k] for k in s]
+	def __str__(self):
+		return self.str
 	def __call__(self,img):#this is probably slow
 		ans=[]
 		for f in self.pipeline:
